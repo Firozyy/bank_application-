@@ -1,41 +1,107 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>Slide Navbar</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="slide navbar style.css">
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style/style.css">
+	<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style/style.css">
 </head>
+
 <body>
-	<div class="main">  	
+	<div class="main" >
 		<input type="checkbox" id="chk" aria-hidden="true" checked>
 
-			<div class="signup">
-				<form>
-					<label for="chk" aria-hidden="true">Sign up</label>
-					<input type="text" name="txt" placeholder="User name" onkeyup="usernameValidate();" required=""class="userNname"  >
-                    <span id="userErrer">adsdd</span>
-                    
-					<input type="email" name="email" placeholder="Email" required="" class="for_email">
-                    <span id="mailErrer">adsdd</span>
+		<div class="signup ps-5 pe-5">
+			<form action="#" id="contactForm" method="POST">
+				<label for="chk" aria-hidden="true">Sign up</label>
+				<!--name-->
+				<input type="text" class="form-control" onkeydown="NameValidation()" placeholder="name" id="Name"
+					name="Name" oninput="this.value =this.value.replace(/[^A-Za-z.]/g, '').replace(/(\..*)\./g,'$1');">
+				<span id="nameError"></span>
 
-					<input type="password" name="pswd" placeholder="Password" required="" class="forPassword">
-                    <span id="passErrer">adsdd</span>
-					<button onclick="sign_up()" >Sign up</button>
-				</form>
-			</div>
+				<!--name ende-->
+				<!--Email-->
+				<input type="email" class="form-control" onkeydown="Emailvalidation()" placeholder="Email" id="Email"
+					name="Email">
+				<span id="mailError"></span>
+				<!--Email end-->
+				<!--password end-->
+				
+				<input type="text" class="form-control" onkeydown="pass_Validation()" placeholder="password" id="pass"
+					name="Name">
+					<span id="pass_errer"></span>
 
-			<div class="login">
-				<form>
-					<label for="chk" aria-hidden="false">Login</label>
-					<input type="email" name="email" placeholder="Email" required="" class="login_mail">
-					<input type="password" name="pswd" placeholder="Password" required="" class="login_pasword">
-					<button onclick="login()"  id="myAnchor">Login</button>
-				</form>
-			</div>
+				<!--password end-->
+
+				<button id="sign_up_btn">Sign up</button>
+			</form>
+		</div>
+
+		<div class="login " >
+			<form>
+				<label for="chk" aria-hidden="false">Login</label>
+				<input type="email" name="email" placeholder="Email" required="" class="login_mail">
+				<span id="login_mailerrer" class="ps-5 pe-5"></span>
+
+				<input type="password" name="pswd" placeholder="Password" required="" class="login_pasword">
+				<span id="passError" class="ms-5 me-5"></span>
+				<button id="myAnchor">Login</button>
+			</form>
+		</div>
+
 	</div>
-    <script src="https://code.jquery.com/jquery-3.6.3.slim.js" integrity="sha256-DKU1CmJ8kBuEwumaLuh9Tl/6ZB6jzGOBV/5YpNE2BWc=" crossorigin="anonymous"></script>
-    <script src="script/script.js"></script>
-   
+
+  <!-- Modal Success Starts-->
+  <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="successModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+			Signup Success
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"onClick="window.location.reload()">Close</button>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+    <!-- Modal Success Ends-->
+  <!-- Modal Failed Starts-->
+  <div class="modal fade" id="failedModal" tabindex="-1" aria-labelledby="failedModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="failedModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Email already exist
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" value="Reload Page" onClick="reload">Close</button>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+    <!-- Modal Failed Ends-->
+
+
+	<script src="https://code.jquery.com/jquery-3.6.3.slim.js"
+		integrity="sha256-DKU1CmJ8kBuEwumaLuh9Tl/6ZB6jzGOBV/5YpNE2BWc=" crossorigin="anonymous"></script>
+	<script src="script/script.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+		crossorigin="anonymous"></script>
+
 </body>
+
 </html>

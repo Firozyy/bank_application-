@@ -37,7 +37,7 @@ label{
 }
 input{
 	width: 60%;
-	height: 20px;
+	height: 2rem;
 	background: #e0dede;
 	justify-content: center;
 	display: flex;
@@ -87,4 +87,24 @@ button:hover{
 }
 #chk:checked ~ .signup label{
 	transform: scale(.6);
+}
+#pass_errer{
+	
+	color: white;
+}
+#mailError{
+	
+	color: white;
+}
+#nameError{
+	
+	color: white;
+}
+#passError{
+	
+	color: rgb(180, 2, 2);
+}
+#login_mailerrer{
+	
+	color: rgb(180, 2, 2);
 }
