@@ -1,4 +1,5 @@
 $("#pass_errer").hide();
+$("#numberError").hide();
 $("#nameError").hide();
 $("#mailError").hide();
 $("#passError").hide();
@@ -7,6 +8,7 @@ $("#login_mailerrer").hide();
 var name_field;
 let formail;
 var forpass;
+let Ac_number;
 
 
 
@@ -15,7 +17,7 @@ document.getElementById("myAnchor").addEventListener("click", function (event) {
     event.preventDefault()
 
     let mail = document.querySelector(".login_mail").value;
-
+     
     let PassWord = document.querySelector(".login_pasword").value;
 
     let x =localStorage.getItem(mail)
@@ -43,7 +45,11 @@ document.getElementById("myAnchor").addEventListener("click", function (event) {
         
         if (mail in localStorage) {
             if (PassWord==obj.password) {
-                  window.location.replace("./userDashboard.html")
+                   
+                let temp="session";
+                localStorage.setItem(temp,mail)
+             
+                  window.location.replace("./dashBord/")
             }else{
                 $("#passError").show().text("Enter a valid password");
                 $("#passError").css("color", "red");
@@ -140,7 +146,7 @@ function pass_Validation() {
         $("#pass").css("border-bottom", "solid 2px #FF0000");
         return false;
     }
-    else if (forpass.length < 8) {
+    else if (forpass.length < 3) {
         $("#pass_errer").show().text("Enter a valid password");
         $("#pass_errer").css("color", "red");
         $("#pass").css("border-bottom", "solid 2px #FF0000");
@@ -159,12 +165,40 @@ function pass_Validation() {
 
 
 }
+function Acc_number_Validation() {
+
+     Ac_number = $("#account_Number").val();
+
+
+
+    
+     if (Ac_number.length < 5) {
+        $("#numberError").show();
+        $("#numberError").html("Please Enter 5 Numbers");
+        $("#account_Number").css("border-bottom", "solid 2px #FF0000");
+        return false;
+
+    }
+    else if (Ac_number == null || Ac_number == '') {
+        $("#numberError").show();
+        $("#numberError").html("Enter Your A/c number ");
+        $("#account_Number").css("border-bottom", "solid 2px #FF0000");
+        return false;
+
+    }
+    else {
+        $("#numberError").hide();
+        $("#account_Number").css("border-bottom", "solid 2px #00FF00");
+        return true;
+    }
+
+}
 //sighnup kuy up functions end
 document.getElementById("sign_up_btn").addEventListener("click", function (event) {
     event.preventDefault()
 
    
-    if(NameValidation()===true  && Emailvalidation() ===true && pass_Validation()=== true){
+    if(NameValidation()===true  && Emailvalidation() ===true && pass_Validation()=== true && Acc_number_Validation()===true){
         if (formail in localStorage){
             $("#failedModal").modal("show");
         }else{
@@ -172,8 +206,9 @@ document.getElementById("sign_up_btn").addEventListener("click", function (event
     
             obj.mail=formail;
             obj.password=forpass;
-          
+          obj.accno= Ac_number
             obj.name=name_field;
+            obj.balalnce="5000";
            
             let email=formail;
             let x = JSON.stringify(obj)

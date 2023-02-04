@@ -88,18 +88,12 @@ button:hover{
 #chk:checked ~ .signup label{
 	transform: scale(.6);
 }
-#pass_errer{
+#pass_errer, #numberError,#mailError,#nameError{
 	
 	color: white;
 }
-#mailError{
-	
-	color: white;
-}
-#nameError{
-	
-	color: white;
-}
+
+
 #passError{
 	
 	color: rgb(180, 2, 2);

@@ -11,7 +11,7 @@
 </head>
 
 <body>
-	<div class="main" >
+	<div class="main">
 		<input type="checkbox" id="chk" aria-hidden="true" checked>
 
 		<div class="signup ps-5 pe-5">
@@ -28,19 +28,23 @@
 					name="Email">
 				<span id="mailError"></span>
 				<!--Email end-->
+
 				<!--password end-->
-				
+
 				<input type="text" class="form-control" onkeydown="pass_Validation()" placeholder="password" id="pass"
 					name="Name">
-					<span id="pass_errer"></span>
+				<span id="pass_errer"></span>
 
 				<!--password end-->
-
+				<input type="text" class="form-control" onkeyup="Acc_number_Validation()" placeholder="Account Number" id="account_Number"
+					name="numb" maxlength="10"
+					oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g,'$1');">
+				<span id="numberError"></span>
 				<button id="sign_up_btn">Sign up</button>
 			</form>
 		</div>
 
-		<div class="login " >
+		<div class="login ">
 			<form>
 				<label for="chk" aria-hidden="false">Login</label>
 				<input type="email" name="email" placeholder="Email" required="" class="login_mail">
@@ -54,45 +58,47 @@
 
 	</div>
 
-  <!-- Modal Success Starts-->
-  <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+	<!-- Modal Success Starts-->
+	<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
 
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="successModalLabel">Modal title</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-			Signup Success
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"onClick="window.location.reload()">Close</button>
-         
-        </div>
-      </div>
-    </div>
-  </div>
-    <!-- Modal Success Ends-->
-  <!-- Modal Failed Starts-->
-  <div class="modal fade" id="failedModal" tabindex="-1" aria-labelledby="failedModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="failedModalLabel">Modal title</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          Email already exist
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" value="Reload Page" onClick="reload">Close</button>
-         
-        </div>
-      </div>
-    </div>
-  </div>
-    <!-- Modal Failed Ends-->
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h1 class="modal-title fs-5" id="successModalLabel">Modal title</h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					Signup Success
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+						onClick="window.location.reload()">Close</button>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Modal Success Ends-->
+	<!-- Modal Failed Starts-->
+	<div class="modal fade" id="failedModal" tabindex="-1" aria-labelledby="failedModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h1 class="modal-title fs-5" id="failedModalLabel">Modal title</h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					Email already exist
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" value="Reload Page"
+						onClick="reload">Close</button>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Modal Failed Ends-->
 
 
 	<script src="https://code.jquery.com/jquery-3.6.3.slim.js"
