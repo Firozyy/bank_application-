@@ -126,3 +126,55 @@ $("#contactForm").submit(function (e) {
 const balance = userData.balalnce
 $("#account_balance").html(balance)
 
+
+//totel transaction
+let trans_count=userData.debit.length;
+$("#trans_count").html(trans_count)
+
+//last  transaction
+let cr_length=userData.credit.length;
+let cr_last_arr=userData.credit[cr_length-1]
+let cr_name=cr_last_arr.name
+let cr_cash=cr_last_arr.amount
+
+$("#last_cr_name").html(cr_name)
+$("#last_cr_amount").html(cr_cash)
+
+
+for (let check of userData.credit){
+    let name=check.name
+    let amount=check.amount
+  console.log(amount); 
+  let htmlRow = `<tr>
+             
+  <td>${name}</td>
+  <td>${amount}</td>
+  <td class="text-success"  >SUCCESS</td>
+ 
+  
+
+  
+</tr>`
+document.querySelector(".content_table").innerHTML += htmlRow;
+   
+}
+
+//debit table
+for (let debit_work of userData.debit){
+    let name=debit_work.name
+    let amount=debit_work.amount
+  console.log(amount); 
+  let debit_htmlRow = `<tr>
+             
+  <td>${name}</td>
+  <td>${amount}</td>
+  <td class="text-success"  >SUCCESS</td>
+ 
+  
+
+  
+</tr>`
+document.querySelector(".content_table2").innerHTML += debit_htmlRow;
+   
+}
+
