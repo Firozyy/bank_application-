@@ -87,6 +87,7 @@ $("#contactForm").submit(function (e) {
             p.balalnce=toBal;
             let data = {}
             data.name = userData.name;
+            data.acnumber=userData.accno
             data.amount = cash
          p.credit.push(data);
 
@@ -101,6 +102,7 @@ $("#contactForm").submit(function (e) {
              let trans = {}
              trans.name = p.name;
              trans.amount = cash
+             trans.acnumber=p.accno
              userData.debit.push(trans);
               //sender tranns end
             let con_verting = JSON.stringify(userData)
@@ -144,10 +146,14 @@ $("#last_cr_amount").html(cr_cash)
 for (let check of userData.credit){
     let name=check.name
     let amount=check.amount
-  console.log(amount); 
+    let account=check.acnumber
+    
+
   let htmlRow = `<tr>
              
   <td>${name}</td>
+  <td>${account}</td>
+
   <td>${amount}</td>
   <td class="text-success"  >SUCCESS</td>
  
@@ -163,11 +169,14 @@ document.querySelector(".content_table").innerHTML += htmlRow;
 for (let debit_work of userData.debit){
     let name=debit_work.name
     let amount=debit_work.amount
-  console.log(amount); 
+    let account=debit_work.acnumber
+
   let debit_htmlRow = `<tr>
              
   <td>${name}</td>
+  <td>${account}</td>
   <td>${amount}</td>
+
   <td class="text-success"  >SUCCESS</td>
  
   
@@ -178,3 +187,5 @@ document.querySelector(".content_table2").innerHTML += debit_htmlRow;
    
 }
 
+
+// pending account add  work
