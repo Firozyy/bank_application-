@@ -1,11 +1,9 @@
-let obj = {nameF:"dasd",age:20}
+var obj = {};
 
-if("nameF" in obj){
-    console.log("das");
-}else{
-    console.log("44");
-}
 
-if()
-
-session:{accno:1000}
+obj.credit=[];
+let data={}
+data.name="firu"
+data.age="23"
+obj.credit.push(data)
+console.log(obj);

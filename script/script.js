@@ -47,7 +47,10 @@ document.getElementById("myAnchor").addEventListener("click", function (event) {
             if (PassWord==obj.password) {
                    
                 let temp="session";
-                localStorage.setItem(temp,mail)
+                let test =JSON.stringify(mail)
+                // let test ={}
+                // test.mail=mail
+                localStorage.setItem(temp,test)
              
                   window.location.replace("./dashBord/")
             }else{
@@ -209,7 +212,9 @@ document.getElementById("sign_up_btn").addEventListener("click", function (event
           obj.accno= Ac_number
             obj.name=name_field;
             obj.balalnce="5000";
-           
+            obj.credit=[];
+            obj.debit=[];
+          
             let email=formail;
             let x = JSON.stringify(obj)
             localStorage.setItem(email,x)

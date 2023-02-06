@@ -10,6 +10,8 @@
     <meta name="author" content="">
 
     <title>My Bank - Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -447,10 +449,27 @@
                                     </div>
                                 </div>
                                 <!-- Card Body -->
+
+
+                                <!-- TRANSFER START -->
                                 <div class="card-body">
-                                    <div class="chart-area">
-                                        <canvas id="myAreaChart"></canvas>
-                                    </div>
+                                    <form action="#" id="contactForm" method="post">
+                                        <div class="form-group">
+                                          <label for="exampleInputEmail1">Account Number</label>
+                                          <input  type="number" class="form-control" id="Account_Number" aria-describedby="emailHelp" placeholder="Account Number">
+                                         
+                                        </div>
+                                       
+                                        <div class="form-group">
+                                          <label for="exampleInputPassword1">AMOUNT</label>
+                                          <input type="number" class="form-control" id="Input_cash" placeholder="AMOUNT">
+                                        </div>
+                                        <div class="form-check">
+                                          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                          <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                      </form>
                                 </div>
                             </div>
                         </div>
@@ -697,6 +716,30 @@
             </div>
         </div>
     </div>
+  <!-- Modal Success Starts-->
+  <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="successModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Invaild Account number
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"onClick="window.location.reload()">Close</button>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+    <!-- Modal Success Ends-->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+crossorigin="anonymous"></script>
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
@@ -715,6 +758,7 @@
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
     <script src="js/myscipt.js"></script>
+    
 </body>
 
 </html>
